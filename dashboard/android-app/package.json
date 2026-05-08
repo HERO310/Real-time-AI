@@ -1,0 +1,24 @@
+{
+  "name": "android-app",
+  "version": "1.0.0",
+  "description": "Capacitor Android shell for the Video Analytics dashboard",
+  "main": "index.js",
+  "scripts": {
+    "build-mobile": "cd ../client && cp .env.mobile .env.production.local && npm run build && cd ../android-app && npx cap sync android",
+    "sync": "npx cap sync android",
+    "open": "npx cap open android",
+    "run-android": "npx cap run android",
+    "add-android": "npx cap add android"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@capacitor/android": "^6.2.1",
+    "@capacitor/cli": "^6.2.1",
+    "@capacitor/core": "^6.2.1"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}

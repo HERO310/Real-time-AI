@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Network Security Config — allows cleartext (HTTP) traffic to the backend server.
+
+  Replace YOUR_SERVER_IP with your actual backend IP or domain, e.g.:
+    <domain includeSubdomains="true">192.168.1.100</domain>
+    <domain includeSubdomains="true">api.myserver.com</domain>
+
+  This file is referenced by android:networkSecurityConfig in AndroidManifest.xml.
+  It ONLY permits cleartext to the specified domain(s), not globally.
+-->
+<network-security-config>
+    <!-- Allow HTTP to the backend server (no TLS required) -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">10.10.1.204</domain>
+    </domain-config>
+
+    <!-- Default: block all other cleartext traffic (secure by default) -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

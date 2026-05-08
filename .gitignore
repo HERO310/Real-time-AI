@@ -1,0 +1,53 @@
+# Data and Datasets
+datasets/
+data/
+results/
+result/
+archive/
+.checkpoints/
+finetuned_qwen2vl_lora/
+models/
+
+# Large Model weights (likely directories)
+VADTree/DeepSeek-R1/
+VADTree/EfficientGEBD/
+VADTree/ImageBind/
+VADTree/LLaVA-NeXT/
+
+# Media files
+*.mp4
+*.avi
+*.mkv
+*.mov
+*.webm
+*.jpg
+*.png
+*.jpeg
+
+# Application specific data
+live_video/
+session_*/
+chunk_*/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.env
+
+# Node.js
+node_modules/
+dist/
+build/
+.npm
+
+# IDEs
+.vscode/
+.idea/
+
+# Misc
+.DS_Store
+*.log

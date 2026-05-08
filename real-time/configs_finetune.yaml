@@ -1,0 +1,23 @@
+model_id: Qwen/Qwen2-VL-2B-Instruct
+output_dir: ./finetuned_qwen2vl_lora
+
+# Data
+train_jsonl: ./data/finetune/train.jsonl
+val_jsonl: ./data/finetune/val.jsonl
+
+# Train
+epochs: 2
+lr: 0.0002
+batch_size: 1
+grad_accum: 8
+max_length: 2048
+warmup_ratio: 0.03
+weight_decay: 0.01
+seed: 42
+bf16: false
+fp16: true
+
+# LoRA
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.05

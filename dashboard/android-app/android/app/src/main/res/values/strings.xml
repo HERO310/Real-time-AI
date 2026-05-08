@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Video Analytics</string>
+    <string name="title_activity_main">Video Analytics</string>
+    <string name="package_name">com.videoanalytics.dashboard</string>
+    <string name="custom_url_scheme">com.videoanalytics.dashboard</string>
+</resources>

@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #0b0f19; /* Deep dark background */
+  color: #f1f5f9; /* Slate 100 */
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  /* Scrollbar styling */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Scanning line animation for live feed */
+@keyframes scan {
+  0%   { top: 0%; opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Slide-in animations for analysis results */
+@keyframes slideInFromBottom {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+  animation-fill-mode: both;
+}
+.fade-in {
+  animation-name: fadeIn;
+}
+.slide-in-from-bottom-2 {
+  animation-name: slideInFromBottom;
+  animation-duration: 300ms;
+  animation-timing-function: ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Mobile / Capacitor Android Responsive Overrides ─────────────────────── */
+
+/* Prevent font size inflation on Android WebView */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Safe area padding for notched/cutout devices */
+body {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* On small screens (phones): stack layout vertically instead of side-by-side */
+@media (max-width: 768px) {
+  /* Allow the outer shell to be scrollable instead of clipped */
+  .h-screen {
+    height: 100dvh; /* dynamic viewport height - respects keyboard on Android */
+  }
+
+  /* Sidebar becomes full-width top section on mobile */
+  .flex-shrink-0.w-72 {
+    width: 100% !important;
+    max-height: 40vh;
+    border-right: none !important;
+    border-bottom: 1px solid #1e293b;
+  }
+
+  /* Main area takes remaining space */
+  .flex-1.overflow-hidden.bg-slate-950 {
+    padding: 8px !important;
+  }
+
+  /* Grid columns: single column on mobile */
+  .grid-cols-12 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Video player minimum height on mobile */
+  .mobile-video-min-h {
+    min-height: 200px !important;
+  }
+
+  /* Analysis / threat panel scrollable */
+  .overflow-y-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Smooth touch scrolling globally on mobile */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent double-tap zoom on buttons / interactive elements */
+button, a, [role="button"] {
+  touch-action: manipulation;
+}
